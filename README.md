@@ -1,8 +1,8 @@
 Privacy Policy for Focus Crawler
 
-Effective Date: [Insert date]
-Developer: [Your name or company name]
-Contact: [Your contact email]
+Effective Date: 5/14/2026
+Developer: Jeremy Carlsten
+Contact: jeremy@jeremycarlsten.com
 
 Focus Crawler is a Chrome extension that helps users stay focused by temporarily blocking distracting websites during user-started timed focus sessions.
 
@@ -122,4 +122,4 @@ This Privacy Policy may be updated from time to time. When changes are made, the
 
 If you have questions about this Privacy Policy or Focus Crawler’s data practices, contact:
 
-[Your contact email]
+jeremy@jeremycarlsten.com
