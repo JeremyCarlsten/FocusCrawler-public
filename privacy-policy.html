@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Focus Crawler Privacy Policy</title>
   <meta
     name="description"
@@ -11,121 +12,303 @@
 
   <style>
     :root {
-      --bg: #120f12;
-      --panel: #1d181b;
-      --panel-2: #292126;
-      --text: #f4ead8;
-      --muted: #c3b8aa;
-      --gold: #f4b84a;
-      --ember: #f05f38;
-      --border: #5a4430;
-      --link: #ffcc66;
-      --shadow: rgba(0, 0, 0, 0.35);
+      --bg: #050505;
+      --panel: #0b0b0c;
+      --panel-2: #111113;
+      --border: #242426;
+      --border-heavy: #303033;
+
+      --yellow: #f4ff00;
+      --green: #29ff14;
+      --pink: #ff2d7d;
+      --cyan: #00e5ff;
+      --text: #f3f3f3;
+      --muted: #b9b9b9;
+      --dim: #7b7b7b;
+
+      --shadow-yellow: rgba(244, 255, 0, 0.25);
+      --shadow-pink: rgba(255, 45, 125, 0.22);
+      --shadow-cyan: rgba(0, 229, 255, 0.18);
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      background: var(--bg);
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.6;
       color: var(--text);
+      font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(240, 95, 56, 0.18), transparent 32rem),
-        radial-gradient(circle at bottom right, rgba(244, 184, 74, 0.12), transparent 30rem),
-        linear-gradient(135deg, #0d0b0d 0%, var(--bg) 55%, #1a1110 100%);
+        radial-gradient(circle at 20% 0%, rgba(255, 45, 125, 0.08), transparent 26rem),
+        radial-gradient(circle at 90% 20%, rgba(0, 229, 255, 0.08), transparent 24rem),
+        radial-gradient(circle at 50% 100%, rgba(41, 255, 20, 0.06), transparent 28rem),
+        linear-gradient(180deg, #090709 0%, #050505 42%, #030303 100%);
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.18;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: linear-gradient(to bottom, black, transparent 88%);
     }
 
     .page {
-      width: min(960px, calc(100% - 32px));
+      width: min(1040px, calc(100% - 32px));
       margin: 0 auto;
-      padding: 48px 0;
+      padding: 42px 0 64px;
     }
 
-    header {
-      padding: 32px;
-      margin-bottom: 24px;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent),
-        var(--panel);
-      box-shadow: 0 24px 60px var(--shadow);
+    .hero {
+      text-align: center;
+      margin-bottom: 34px;
     }
 
-    .eyebrow {
-      margin: 0 0 8px;
-      color: var(--gold);
+    .system-label {
+      margin: 0 0 6px;
+      color: var(--pink);
       font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.14em;
+      font-weight: 900;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
+    }
+
+    .system-label::before {
+      content: "▶";
+      color: var(--yellow);
+      margin-right: 10px;
+      text-shadow: 0 0 12px var(--shadow-yellow);
     }
 
     h1 {
       margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2.25rem, 5vw, 4rem);
-      line-height: 1;
-      letter-spacing: -0.03em;
+      color: var(--yellow);
+      font-family:
+        Impact,
+        Haettenschweiler,
+        "Arial Narrow Bold",
+        sans-serif;
+      font-size: clamp(3rem, 8vw, 5.6rem);
+      line-height: 0.9;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      text-shadow:
+        0 5px 0 rgba(0, 0, 0, 0.65),
+        0 0 18px var(--shadow-yellow);
+    }
+
+    .skulls {
+      color: var(--pink);
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      letter-spacing: 0.06em;
+      text-shadow: 0 0 12px var(--shadow-pink);
+      vertical-align: middle;
+      white-space: nowrap;
     }
 
     .subtitle {
-      max-width: 720px;
-      margin: 18px 0 0;
+      max-width: 780px;
+      margin: 20px auto 0;
       color: var(--muted);
-      font-size: 1.05rem;
+      font-size: 1.04rem;
+      font-style: italic;
     }
 
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 24px;
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 28px auto 0;
+      max-width: 900px;
     }
 
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      padding: 8px 12px;
-      border: 1px solid rgba(244, 184, 74, 0.35);
-      border-radius: 999px;
-      background: rgba(244, 184, 74, 0.08);
+    .meta-card {
+      border: 2px solid var(--border-heavy);
+      border-radius: 14px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.035), transparent),
+        var(--panel);
+      padding: 14px 16px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.035);
+      text-align: left;
+    }
+
+    .meta-card strong {
+      display: block;
+      color: var(--cyan);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .meta-card span,
+    .meta-card a {
       color: var(--text);
-      font-size: 0.9rem;
+      font-weight: 700;
+      word-break: break-word;
+    }
+
+    a {
+      color: var(--cyan);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+
+    a:hover {
+      color: var(--yellow);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .toc {
+      position: sticky;
+      top: 18px;
+      border: 3px solid var(--border-heavy);
+      border-radius: 20px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), transparent),
+        rgba(9, 9, 10, 0.94);
+      padding: 20px;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.04),
+        0 0 30px rgba(0,0,0,0.55);
+    }
+
+    .toc-title {
+      margin: 0 0 14px;
+      color: var(--green);
+      font-family:
+        Impact,
+        Haettenschweiler,
+        "Arial Narrow Bold",
+        sans-serif;
+      font-size: 1.8rem;
+      line-height: 1;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px rgba(41, 255, 20, 0.25);
+    }
+
+    .toc p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-style: italic;
+    }
+
+    .toc-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    .toc-list a {
+      display: block;
+      padding: 9px 10px;
+      border: 1px dashed rgba(255,45,125,0.5);
+      border-radius: 10px;
+      color: var(--text);
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .toc-list a:hover {
+      color: var(--yellow);
+      border-color: var(--yellow);
+      box-shadow: 0 0 16px var(--shadow-yellow);
     }
 
     main {
-      padding: 32px;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      background: rgba(29, 24, 27, 0.92);
-      box-shadow: 0 24px 60px var(--shadow);
+      display: grid;
+      gap: 20px;
     }
 
-    section {
-      padding: 24px 0;
-      border-bottom: 1px solid rgba(244, 184, 74, 0.16);
+    .panel {
+      border: 3px solid var(--border-heavy);
+      border-radius: 20px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.035), transparent 120px),
+        var(--panel);
+      padding: 26px;
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,0.04),
+        0 22px 55px rgba(0,0,0,0.42);
     }
 
-    section:first-child {
-      padding-top: 0;
+    .panel.hot {
+      border-color: rgba(255,45,125,0.45);
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,0.04),
+        0 0 28px rgba(255,45,125,0.08),
+        0 22px 55px rgba(0,0,0,0.42);
     }
 
-    section:last-child {
-      padding-bottom: 0;
-      border-bottom: 0;
+    .panel.safe {
+      border-color: rgba(41,255,20,0.35);
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,0.04),
+        0 0 28px rgba(41,255,20,0.06),
+        0 22px 55px rgba(0,0,0,0.42);
+    }
+
+    .eyebrow {
+      margin: 0 0 6px;
+      color: var(--cyan);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
     }
 
     h2 {
-      margin: 0 0 12px;
-      font-family: Georgia, "Times New Roman", serif;
-      color: var(--gold);
-      font-size: 1.45rem;
-      line-height: 1.25;
+      margin: 0 0 14px;
+      color: var(--yellow);
+      font-family:
+        Impact,
+        Haettenschweiler,
+        "Arial Narrow Bold",
+        sans-serif;
+      font-size: clamp(1.75rem, 3.3vw, 2.65rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      text-shadow:
+        0 4px 0 rgba(0,0,0,0.65),
+        0 0 12px var(--shadow-yellow);
+    }
+
+    .green-title {
+      color: var(--green);
+      text-shadow:
+        0 4px 0 rgba(0,0,0,0.65),
+        0 0 12px rgba(41,255,20,0.28);
     }
 
     p {
@@ -137,52 +320,160 @@
       margin-bottom: 0;
     }
 
+    .muted {
+      color: var(--muted);
+    }
+
     ul {
       margin: 0;
-      padding-left: 1.4rem;
-      color: var(--text);
+      padding-left: 1.35rem;
     }
 
     li {
-      margin: 0.45rem 0;
+      margin: 0.42rem 0;
     }
 
-    a {
-      color: var(--link);
-      text-decoration-thickness: 2px;
-      text-underline-offset: 3px;
+    strong {
+      color: var(--yellow);
     }
 
-    a:hover {
-      color: #ffe09a;
+    .callouts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .callout {
+      border: 2px dashed rgba(255,45,125,0.65);
+      border-radius: 16px;
+      padding: 16px;
+      background: rgba(255,45,125,0.045);
+    }
+
+    .callout strong {
+      display: block;
+      color: var(--yellow);
+      font-family:
+        Impact,
+        Haettenschweiler,
+        "Arial Narrow Bold",
+        sans-serif;
+      font-size: 1.55rem;
+      line-height: 1;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      text-shadow: 0 0 10px var(--shadow-yellow);
+    }
+
+    .callout span {
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .code-pill {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 5px;
+      background: rgba(0,229,255,0.14);
+      color: var(--cyan);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.88em;
+      font-weight: 800;
+    }
+
+    .permission-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .permission {
+      border: 1px solid rgba(244,255,0,0.22);
+      border-radius: 14px;
+      padding: 14px;
+      background: rgba(244,255,0,0.035);
+    }
+
+    .permission strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--cyan);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
     }
 
     .notice {
-      margin: 20px 0 0;
-      padding: 16px;
-      border: 1px solid rgba(240, 95, 56, 0.45);
-      border-radius: 14px;
-      background: rgba(240, 95, 56, 0.08);
+      border: 2px dashed rgba(255,45,125,0.65);
+      border-radius: 16px;
+      padding: 18px;
+      background: rgba(255,45,125,0.055);
       color: var(--text);
+      font-weight: 700;
+    }
+
+    .button-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      margin-top: 8px;
+      padding: 12px 18px;
+      border: 2px solid rgba(41,255,20,0.9);
+      border-radius: 10px;
+      color: #071007;
+      background: linear-gradient(180deg, #9bff2b 0%, #25ef10 45%, #0bac0b 100%);
+      box-shadow:
+        0 0 16px rgba(41,255,20,0.4),
+        inset 0 2px 0 rgba(255,255,255,0.38);
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
+
+    .button-link:hover {
+      color: #000;
+      filter: brightness(1.08);
     }
 
     footer {
-      padding: 24px 0 0;
-      color: var(--muted);
-      font-size: 0.9rem;
+      margin-top: 32px;
       text-align: center;
+      color: var(--dim);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 920px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .toc {
+        position: static;
+      }
+
+      .meta-grid,
+      .callouts {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 640px) {
       .page {
-        width: min(100% - 20px, 960px);
-        padding: 20px 0;
+        width: min(100% - 22px, 1040px);
+        padding-top: 26px;
       }
 
-      header,
-      main {
-        padding: 22px;
-        border-radius: 14px;
+      .panel,
+      .toc {
+        padding: 20px;
+        border-radius: 16px;
+      }
+
+      .meta-card {
+        padding: 12px;
       }
     }
   </style>
@@ -190,181 +481,287 @@
 
 <body>
   <div class="page">
-    <header>
-      <p class="eyebrow">Focus Crawler</p>
-      <h1>Privacy Policy</h1>
+    <header class="hero">
+      <p class="system-label">Crawler Config</p>
+      <h1>Focus Crawler <span class="skulls">▣▣▣</span></h1>
       <p class="subtitle">
-        Focus Crawler is a Chrome extension that helps users stay focused by temporarily blocking distracting websites during user-started timed focus sessions.
+        Privacy policy for the cursed little productivity wall that stores your settings locally,
+        seals your Shiny Portals, and does not ship your browsing data off to a server farm.
       </p>
 
-      <div class="meta">
-        <span class="pill">Effective Date: May 14, 2026</span>
-        <span class="pill">Developer: Jeremy Carlsten</span>
-        <span class="pill">Contact: <a href="mailto:jeremy@jeremycarlsten.com">jeremy@jeremycarlsten.com</a></span>
+      <div class="meta-grid" aria-label="Policy details">
+        <div class="meta-card">
+          <strong>Effective Date</strong>
+          <span>May 14, 2026</span>
+        </div>
+        <div class="meta-card">
+          <strong>Developer</strong>
+          <span>Jeremy Carlsten</span>
+        </div>
+        <div class="meta-card">
+          <strong>Contact</strong>
+          <a href="mailto:jeremy@jeremycarlsten.com">jeremy@jeremycarlsten.com</a>
+        </div>
       </div>
     </header>
 
-    <main>
-      <section>
-        <h2>1. Information Focus Crawler Stores</h2>
-        <p>
-          Focus Crawler stores extension settings locally in your browser using Chrome extension storage. This may include:
-        </p>
-        <ul>
-          <li>Focus Run duration settings</li>
-          <li>Pomodoro settings</li>
-          <li>Shiny Portal list, meaning websites you choose to block</li>
-          <li>Safe Room list, meaning websites you choose to allow during Boss Room Mode</li>
-          <li>Blocking mode preferences</li>
-          <li>Personality mode preferences</li>
-          <li>Custom blocked-page messages you choose to enter</li>
-          <li>Current Focus Run state, such as whether a timer is active and when it ends</li>
-          <li>Local focus statistics, such as completed Focus Runs, focus minutes, canceled sessions, and blocked attempts</li>
-          <li>Achievement progress, if achievements are enabled</li>
-        </ul>
-        <p>
-          This information is stored locally in your browser and is used only to provide Focus Crawler’s focus-blocking features.
-        </p>
-      </section>
+    <div class="layout">
+      <aside class="toc" aria-label="Privacy policy sections">
+        <h2 class="toc-title">Policy Map</h2>
+        <p>No accounts. No analytics. No remote logging. No weird productivity cult.</p>
+        <nav>
+          <ul class="toc-list">
+            <li><a href="#stored">Stored Locally</a></li>
+            <li><a href="#blocking">Website Blocking</a></li>
+            <li><a href="#use">How Data Is Used</a></li>
+            <li><a href="#sharing">No Sharing</a></li>
+            <li><a href="#remote-code">No Remote Code</a></li>
+            <li><a href="#permissions">Permissions</a></li>
+            <li><a href="#limited-use">Limited Use</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </aside>
 
-      <section>
-        <h2>2. Website Blocking and Browsing Activity</h2>
-        <p>
-          Focus Crawler checks website navigation locally in your browser so it can determine whether a site should be blocked during an active Focus Run.
-        </p>
-        <p>
-          For example, if you add youtube.com as a Shiny Portal, Focus Crawler uses the site URL locally to decide whether to redirect that page to the extension’s blocked page while your Focus Run is active.
-        </p>
-        <p>
-          In Boss Room Mode, Focus Crawler may check visited site hostnames locally to determine whether they are on your approved Safe Room list.
-        </p>
-        <p>
-          Focus Crawler does not collect, sell, transmit, or remotely store your browsing history.
-        </p>
-        <p>
-          Focus Crawler may store local statistics related to blocking activity, such as the number of blocked attempts or blocked attempts by site, only to support local stats and achievement features inside the extension.
-        </p>
-      </section>
+      <main>
+        <section class="panel hot">
+          <p class="eyebrow">Privacy Summary</p>
+          <h2>No Accounts. No Tracking. No Nonsense.</h2>
+          <p>
+            Focus Crawler stores your settings locally in Chrome. It does not create accounts,
+            use analytics, sell data, or send your browsing activity to a remote server.
+          </p>
 
-      <section>
-        <h2>3. How Information Is Used</h2>
-        <p>Focus Crawler uses locally stored information to:</p>
-        <ul>
-          <li>Start, display, and end timed Focus Runs</li>
-          <li>Block or redirect websites you configured as Shiny Portals</li>
-          <li>Allow approved Safe Rooms during Boss Room Mode</li>
-          <li>Show the correct blocked-page message based on your selected personality mode</li>
-          <li>Save your extension settings</li>
-          <li>Display local focus statistics and achievements</li>
-          <li>Restore focus state if Chrome restarts or the extension reloads</li>
-        </ul>
-        <p>
-          Focus Crawler does not use your information for advertising, profiling, analytics, or tracking.
-        </p>
-      </section>
+          <div class="callouts">
+            <div class="callout">
+              <strong>Local Settings</strong>
+              <span>Your portals, Safe Rooms, stats, and messages stay in Chrome.</span>
+            </div>
+            <div class="callout">
+              <strong>No Accounts</strong>
+              <span>No signup. No dashboard. No productivity cult.</span>
+            </div>
+            <div class="callout">
+              <strong>No Interruptions</strong>
+              <span>When the timer ends, everything unlocks silently.</span>
+            </div>
+          </div>
+        </section>
 
-      <section>
-        <h2>4. Information Sharing</h2>
-        <p>
-          Focus Crawler does not sell, rent, share, or transfer user data to third parties.
-        </p>
-        <p>
-          Focus Crawler does not send your settings, website lists, browsing activity, custom messages, or focus statistics to any remote server.
-        </p>
-        <p>
-          Focus Crawler does not use third-party analytics services.
-        </p>
-        <p>
-          Focus Crawler does not create user accounts and does not require sign-in.
-        </p>
-      </section>
+        <section class="panel" id="stored">
+          <p class="eyebrow">Local Loot Table</p>
+          <h2>1. Information Focus Crawler Stores</h2>
+          <p>
+            Focus Crawler stores extension settings locally in your browser using Chrome extension storage.
+            This may include:
+          </p>
+          <ul>
+            <li>Focus Run duration settings</li>
+            <li>Pomodoro settings</li>
+            <li>Shiny Portal list, meaning websites you choose to block</li>
+            <li>Safe Room list, meaning websites you choose to allow during Boss Room Mode</li>
+            <li>Blocking mode preferences</li>
+            <li>Personality mode preferences</li>
+            <li>Custom blocked-page messages you choose to enter</li>
+            <li>Current Focus Run state, such as whether a timer is active and when it ends</li>
+            <li>Local focus statistics, such as completed Focus Runs, focus minutes, canceled sessions, and blocked attempts</li>
+            <li>Achievement progress, if achievements are enabled</li>
+          </ul>
+          <p>
+            This information is stored locally in your browser and is used only to provide Focus Crawler’s focus-blocking features.
+          </p>
+        </section>
 
-      <section>
-        <h2>5. Remote Code and External Services</h2>
-        <p>
-          Focus Crawler does not use remote code.
-        </p>
-        <p>
-          All JavaScript, HTML, CSS, JSON response files, and extension assets are packaged with the extension. Focus Crawler does not load scripts from remote servers or CDNs.
-        </p>
-      </section>
+        <section class="panel" id="blocking">
+          <p class="eyebrow">Portal Handling</p>
+          <h2>2. Website Blocking and Browsing Activity</h2>
+          <p>
+            Focus Crawler checks website navigation locally in your browser so it can determine whether a site
+            should be blocked during an active Focus Run.
+          </p>
+          <p>
+            For example, if you add <span class="code-pill">youtube.com</span> as a Shiny Portal,
+            Focus Crawler uses the site URL locally to decide whether to redirect that page to the extension’s
+            blocked page while your Focus Run is active.
+          </p>
+          <p>
+            In Boss Room Mode, Focus Crawler may check visited site hostnames locally to determine whether they
+            are on your approved Safe Room list.
+          </p>
+          <p>
+            Focus Crawler does not collect, sell, transmit, or remotely store your browsing history.
+          </p>
+          <p>
+            Focus Crawler may store local statistics related to blocking activity, such as the number of blocked
+            attempts or blocked attempts by site, only to support local stats and achievement features inside the extension.
+          </p>
+        </section>
 
-      <section>
-        <h2>6. Data Storage and Removal</h2>
-        <p>
-          Focus Crawler stores data locally in Chrome extension storage.
-        </p>
-        <p>You can remove Focus Crawler data by:</p>
-        <ul>
-          <li>Resetting settings inside the extension, if available</li>
-          <li>Clearing extension storage through Chrome</li>
-          <li>Uninstalling the extension</li>
-        </ul>
-        <p>
-          Uninstalling the extension removes the extension and its locally stored extension data according to Chrome’s extension storage behavior.
-        </p>
-      </section>
+        <section class="panel" id="use">
+          <p class="eyebrow">Main Quest Usage</p>
+          <h2>3. How Information Is Used</h2>
+          <p>Focus Crawler uses locally stored information to:</p>
+          <ul>
+            <li>Start, display, and end timed Focus Runs</li>
+            <li>Block or redirect websites you configured as Shiny Portals</li>
+            <li>Allow approved Safe Rooms during Boss Room Mode</li>
+            <li>Show the correct blocked-page message based on your selected personality mode</li>
+            <li>Save your extension settings</li>
+            <li>Display local focus statistics and achievements</li>
+            <li>Restore focus state if Chrome restarts or the extension reloads</li>
+          </ul>
+          <p>
+            Focus Crawler does not use your information for advertising, profiling, analytics, or tracking.
+          </p>
+        </section>
 
-      <section>
-        <h2>7. Permissions</h2>
-        <p>
-          Focus Crawler requests Chrome permissions only to provide its focus-blocking features.
-        </p>
-        <ul>
-          <li><strong>Storage:</strong> Used to save user settings, focus timers, website lists, custom messages, and local statistics.</li>
-          <li><strong>Alarms:</strong> Used to end Focus Runs automatically when the selected timer expires.</li>
-          <li><strong>Declarative Net Request:</strong> Used to block or redirect configured websites locally during active Focus Runs.</li>
-          <li><strong>Tabs:</strong> Used to update or redirect already-open tabs when a Focus Run starts and to help users return from the blocked page when possible.</li>
-          <li><strong>Host Permissions:</strong> Used so Focus Crawler can apply blocking rules to websites during active Focus Runs, including Boss Room Mode, where all sites are blocked except approved Safe Rooms.</li>
-        </ul>
-      </section>
+        <section class="panel safe" id="sharing">
+          <p class="eyebrow">Goblin Containment</p>
+          <h2 class="green-title">4. Information Sharing</h2>
+          <p>
+            Focus Crawler does not sell, rent, share, or transfer user data to third parties.
+          </p>
+          <p>
+            Focus Crawler does not send your settings, website lists, browsing activity, custom messages,
+            or focus statistics to any remote server.
+          </p>
+          <p>
+            Focus Crawler does not use third-party analytics services.
+          </p>
+          <p>
+            Focus Crawler does not create user accounts and does not require sign-in.
+          </p>
+        </section>
 
-      <section>
-        <h2>8. Children’s Privacy</h2>
-        <p>
-          Focus Crawler is not directed toward children and does not knowingly collect personal information from children.
-        </p>
-      </section>
+        <section class="panel" id="remote-code">
+          <p class="eyebrow">Runtime Integrity</p>
+          <h2>5. Remote Code and External Services</h2>
+          <p>
+            Focus Crawler does not use remote code.
+          </p>
+          <p>
+            All JavaScript, HTML, CSS, JSON response files, and extension assets are packaged with the extension.
+            Focus Crawler does not load scripts from remote servers or CDNs.
+          </p>
+        </section>
 
-      <section>
-        <h2>9. Optional Mature Content</h2>
-        <p>
-          Focus Crawler includes optional personality modes. The Unhinged personality mode may include profanity and dark-comedy messages. This setting affects only the text shown inside the extension and does not change how user data is handled.
-        </p>
-      </section>
+        <section class="panel">
+          <p class="eyebrow">Inventory Cleanup</p>
+          <h2>6. Data Storage and Removal</h2>
+          <p>
+            Focus Crawler stores data locally in Chrome extension storage.
+          </p>
+          <p>You can remove Focus Crawler data by:</p>
+          <ul>
+            <li>Resetting settings inside the extension, if available</li>
+            <li>Clearing extension storage through Chrome</li>
+            <li>Uninstalling the extension</li>
+          </ul>
+          <p>
+            Uninstalling the extension removes the extension and its locally stored extension data according
+            to Chrome’s extension storage behavior.
+          </p>
+        </section>
 
-      <section>
-        <h2>10. Chrome Web Store Limited Use Disclosure</h2>
-        <p>
-          Focus Crawler’s use of information received from Chrome extension APIs complies with the Chrome Web Store User Data Policy, including the Limited Use requirements.
-        </p>
-        <p>
-          Focus Crawler uses data only to provide or improve its single purpose: helping users stay focused by temporarily blocking distracting websites during timed focus sessions.
-        </p>
-        <p>
-          Focus Crawler does not transfer user data to third parties except as required by law, security, or a user-authorized action. Focus Crawler does not use user data for advertising, does not sell user data, and does not allow humans to read user data.
-        </p>
-      </section>
+        <section class="panel" id="permissions">
+          <p class="eyebrow">System Permissions</p>
+          <h2>7. Permissions</h2>
+          <p>
+            Focus Crawler requests Chrome permissions only to provide its focus-blocking features.
+          </p>
 
-      <section>
-        <h2>11. Changes to This Privacy Policy</h2>
-        <p>
-          This Privacy Policy may be updated from time to time. When changes are made, the effective date at the top of this page will be updated.
-        </p>
-      </section>
+          <div class="permission-list">
+            <div class="permission">
+              <strong>Storage</strong>
+              Used to save user settings, focus timers, website lists, custom messages, and local statistics.
+            </div>
 
-      <section>
-        <h2>12. Contact</h2>
-        <p>
-          If you have questions about this Privacy Policy or Focus Crawler’s data practices, contact:
-          <a href="mailto:jeremy@jeremycarlsten.com">jeremy@jeremycarlsten.com</a>.
-        </p>
+            <div class="permission">
+              <strong>Alarms</strong>
+              Used to end Focus Runs automatically when the selected timer expires.
+            </div>
 
-        <div class="notice">
-          Focus Crawler is designed to keep your focus settings, website lists, custom messages, and local stats in your browser.
-        </div>
-      </section>
-    </main>
+            <div class="permission">
+              <strong>Declarative Net Request</strong>
+              Used to block or redirect configured websites locally during active Focus Runs.
+            </div>
+
+            <div class="permission">
+              <strong>Tabs</strong>
+              Used to update or redirect already-open tabs when a Focus Run starts and to help users return
+              from the blocked page when possible.
+            </div>
+
+            <div class="permission">
+              <strong>Host Permissions</strong>
+              Used so Focus Crawler can apply blocking rules to websites during active Focus Runs, including
+              Boss Room Mode, where all sites are blocked except approved Safe Rooms.
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <p class="eyebrow">Tiny Humans</p>
+          <h2>8. Children’s Privacy</h2>
+          <p>
+            Focus Crawler is not directed toward children and does not knowingly collect personal information from children.
+          </p>
+        </section>
+
+        <section class="panel">
+          <p class="eyebrow">Language Warning</p>
+          <h2>9. Optional Mature Content</h2>
+          <p>
+            Focus Crawler includes optional personality modes. The Unhinged personality mode may include profanity
+            and dark-comedy messages. This setting affects only the text shown inside the extension and does not
+            change how user data is handled.
+          </p>
+        </section>
+
+        <section class="panel hot" id="limited-use">
+          <p class="eyebrow">Chrome Web Store Disclosure</p>
+          <h2>10. Limited Use Disclosure</h2>
+          <p>
+            Focus Crawler’s use of information received from Chrome extension APIs complies with the Chrome Web Store
+            User Data Policy, including the Limited Use requirements.
+          </p>
+          <p>
+            Focus Crawler uses data only to provide or improve its single purpose: helping users stay focused by
+            temporarily blocking distracting websites during timed focus sessions.
+          </p>
+          <p>
+            Focus Crawler does not transfer user data to third parties except as required by law, security, or a
+            user-authorized action. Focus Crawler does not use user data for advertising, does not sell user data,
+            and does not allow humans to read user data.
+          </p>
+        </section>
+
+        <section class="panel">
+          <p class="eyebrow">Patch Notes</p>
+          <h2>11. Changes to This Privacy Policy</h2>
+          <p>
+            This Privacy Policy may be updated from time to time. When changes are made, the effective date at
+            the top of this page will be updated.
+          </p>
+        </section>
+
+        <section class="panel safe" id="contact">
+          <p class="eyebrow">Contact Portal</p>
+          <h2 class="green-title">12. Contact</h2>
+          <p>
+            If you have questions about this Privacy Policy or Focus Crawler’s data practices, contact:
+          </p>
+          <a class="button-link" href="mailto:jeremy@jeremycarlsten.com">
+            jeremy@jeremycarlsten.com
+          </a>
+
+          <div class="notice" style="margin-top: 20px;">
+            Focus Crawler is designed to keep your focus settings, website lists, custom messages,
+            and local stats in your browser.
+          </div>
+        </section>
+      </main>
+    </div>
 
     <footer>
       &copy; 2026 Focus Crawler. All rights reserved.
